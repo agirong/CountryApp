@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 
 
@@ -12,7 +13,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   declarations: [
     HomePageComponent,
     AboutPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    ContactPageComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HomePageComponent,
     AboutPageComponent,
     SidebarComponent,
+    ContactPageComponent,
   ]
 })
 export class SharedModule { }
