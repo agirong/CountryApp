@@ -10,6 +10,15 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
+  //Consulta para obtener la información del pais por codigo.
+  searchCountryByAlphaCode(code:string): Observable<Country[]>{
+    const url=`${this.apiUrl}/alpha/${code}`
+    return this.http.get<Country[]>(url)
+    .pipe(
+      catchError( error => of([]))
+    );
+  }
+
   //Consulta por nombre de la capital del país
   searchCapital(term: string): Observable<Country []>{
     const url=`${this.apiUrl}/capital/${term}`
