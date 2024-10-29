@@ -10,12 +10,21 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
+  //Consulta por nombre de la capital del país
   searchCapital(term: string): Observable<Country []>{
     const url=`${this.apiUrl}/capital/${term}`
     return this.http.get<Country[]>(url)
     .pipe(
       catchError( error => of([]))
     );
+  }
+
+  //Consulta por el nombre common del país
+  searchCountry(term: string):Observable<Country[]>{
+    return this.http.get<Country[]>(`${this.apiUrl}/name/${term}`)
+    .pipe(
+      catchError(()=> of([]))
+    )
   }
 
 }
