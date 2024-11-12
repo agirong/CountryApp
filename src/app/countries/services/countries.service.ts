@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, delay, map, Observable, of} from 'rxjs';
+import { catchError, map, Observable, of, tap} from 'rxjs';
 import { Country } from '../interfaces/country';
 import { CacheStore } from '../interfaces/cache-store.interface';
 
@@ -38,7 +38,10 @@ export class CountriesService {
   //Consulta por nombre de la capital del país
   searchCapital(term: string): Observable<Country []>{
     const url=`${this.apiUrl}/capital/${term}`;
-    return this.getCountriesRequest(url);
+    return this.getCountriesRequest(url)
+    .pipe(
+      tap(countries => this.cacheStore.byCapital = { term , countries}),
+    );
   }
 
   //Consulta por el nombre common del país
