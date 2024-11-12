@@ -47,7 +47,10 @@ export class CountriesService {
   //Consulta por el nombre common del país
   searchCountry(term: string):Observable<Country[]>{
     const url = `${this.apiUrl}/name/${term}`;
-    return this.getCountriesRequest(url);
+    return this.getCountriesRequest(url)
+    .pipe(
+      tap(countries => this.cacheStore.byCountries = { term , countries}),
+    );
   }
 
   //Consulta por el continente
