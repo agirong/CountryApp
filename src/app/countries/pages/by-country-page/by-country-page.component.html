@@ -5,7 +5,7 @@
       <!-- Barra de Busqueda -->
       <shared-search-box
         placeholder="Buscar por Nombre del país"
-        (onValue)="searchByCountry($event)"
+        (onDebounce)="searchByCountry($event)"
       ></shared-search-box>
   </div>
 </div>
