@@ -7,6 +7,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { CountriesRoutingModule } from './countries-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { CountryTableComponent } from './components/country-table/country-table.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -16,12 +17,13 @@ import { CountryTableComponent } from './components/country-table/country-table.
     ByCountryPageComponent,
     ByRegionPageComponent,
     CountryPageComponent,
-    CountryTableComponent
+    CountryTableComponent,
   ],
   imports: [
     CommonModule,
     CountriesRoutingModule,
     SharedModule,
+    NgxPaginationModule
   ]
 })
 export class CountriesModule { }

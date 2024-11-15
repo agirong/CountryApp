@@ -11,7 +11,7 @@ import { Country } from '../../interfaces/country';
   ]
 })
 export class CountryTableComponent {
-
+  public page: number = 1;
   @Input()
   public countries: Country[] = [];
 
